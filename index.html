@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bolão Escolar 3º Ano</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+<body>
+
+<header>
+
+<h3>CETI MALAQUIS RIBEIRO DAMASCENO</h3>
+
+<p>São Lourenço do Piauí - PI</p>
+
+<h1>🏆 BOLÃO ESCOLAR 3º ANO</h1>
+<h2>COPA DO MUNDO</h2>
+
+</header>
+
+<section class="hero">
+
+<div class="time">
+
+<div class="flag-wrapper">
+<img src="https://flagcdn.com/w320/br.png" alt="Bandeira do Brasil">
+</div>
+
+<h2>BRASIL</h2>
+
+</div>
+
+<div class="vs-container">
+<div class="vs">VS</div>
+</div>
+
+<div class="time">
+
+<div class="flag-wrapper">
+<img src="https://flagcdn.com/w320/gb-sct.png" alt="Bandeira da Escócia">
+</div>
+
+<h2>ESCÓCIA</h2>
+
+</div>
+
+</section>
+
+<section class="info">
+
+<div class="premio">
+🎁 PRÊMIO SURPRESA
+</div>
+
+<div class="contador">
+📊 Total de Apostas:
+<span id="total">0</span>
+</div>
+
+</section>
+<div class="premiacao">
+
+<h2 class="piscando">🎁 GRANDE PREMIAÇÃO 🎁</h2>
+
+<h3>Quem acertar o placar será o grande campeão!</h3>
+
+<div class="premios">
+
+<div class="item">
+
+<!-- SALVE SUA FOTO COMO cabaca.png/jpg -->
+<img src="cabaca.jpg" alt="Cabaça">
+
+<h4>🥥 CABAÇA OFICIAL</h4>
+
+<p>
+Uma legítima cabaça sertaneja,
+prêmio raro e cheio de tradição!
+</p>
+
+</div>
+
+<div class="item">
+
+<img src="enxada.jpg" alt="Enxada">
+
+<h4>⛏️ ENXADA NOVINHA</h4>
+
+<p>
+Ferramenta dos campeões e
+verdadeiros trabalhadores do campo.
+</p>
+
+</div>
+
+</div>
+
+<div class="frase">
+
+😂 Não é PIX!<br>
+😂 Não é iPhone!<br>
+😂 Não é Moto 0km!<br><br>
+
+🥥 UMA CABAÇA DE VERDADE<br>
+➕<br>
+⛏️ UMA ENXADA NOVINHA<br><br>
+
+🏆 O campeão leva para casa os prêmios mais raiz do sertão! 🏆
+
+<br><br>
+
+⚽ Faça seu palpite e entre para a história do
+Bolão do Terceirão!
+
+</div>
+
+</div>
+
+</div>
+
+<section class="card card-aposta">
+
+<h2>⚽ Faça sua Aposta</h2>
+
+<div class="input-group">
+<label for="nome">Nome Completo</label>
+<input id="nome" placeholder="Digite seu nome completo">
+</div>
+
+<div class="form-row">
+<div class="input-group">
+<label for="cpf">CPF</label>
+<input id="cpf" placeholder="000.000.000-00">
+</div>
+<div class="input-group">
+<label for="telefone">Telefone</label>
+<input id="telefone" placeholder="(00) 00000-0000">
+</div>
+</div>
+
+<div class="placar-section">
+<h3>Placar do Jogo</h3>
+<div class="placar-grid">
+<div class="placar-input-wrapper">
+<span class="placar-label">BRASIL</span>
+<input id="brasil" type="number" min="0" placeholder="0">
+</div>
+<div class="placar-divisor">x</div>
+<div class="placar-input-wrapper">
+<span class="placar-label">ESCÓCIA</span>
+<input id="haiti" type="number" min="0" placeholder="0">
+</div>
+</div>
+</div>
+
+<div class="gols-section">
+<h3>⚽ Marcador do Primeiro Gol</h3>
+<p class="section-desc">Selecione o jogador que marcará o primeiro gol de cada equipe no tempo regulamentar:</p>
+
+<div class="gols-grid">
+<!-- Seleção Brasil -->
+<div class="selecao-container">
+<h4 class="time-titulo brasil-text">🇧🇷 BRASIL</h4>
+<div class="chips-container" id="chips-brasil">
+<!-- Inserido dinamicamente via app.js -->
+</div>
+</div>
+
+<!-- Seleção Escócia -->
+<div class="selecao-container">
+<h4 class="time-titulo escocia-text">🏴󠁧󠁢󠁳󠁧󠁿 ESCÓCIA</h4>
+<div class="chips-container" id="chips-escocia">
+<!-- Inserido dinamicamente via app.js -->
+</div>
+</div>
+</div>
+</div>
+
+<button onclick="apostar()" class="btn-registrar">
+REGISTRAR APOSTA
+</button>
+
+<div id="mensagem"></div>
+
+</section>
+
+<section class="card card-registros">
+
+<h2>📋 Apostas Registradas</h2>
+
+<div class="table-container">
+<table>
+
+<thead>
+
+<tr>
+<th>Participante</th>
+<th>Palpite Placar</th>
+<th>1º Gol Brasil</th>
+<th>1º Gol Escócia</th>
+</tr>
+
+</thead>
+
+<tbody id="lista">
+
+</tbody>
+
+</table>
+</div>
+
+</section>
+
+<footer>
+
+CETI MALAQUIS RIBEIRO DAMASCENO
+
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>

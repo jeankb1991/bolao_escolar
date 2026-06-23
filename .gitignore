@@ -1,0 +1,14 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Dependências (caso use npm futuramente)
+node_modules/
+
+# Variáveis de ambiente
+.env
+.env.local

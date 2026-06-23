@@ -174,19 +174,26 @@ async function apostar() {
     const nome = document.getElementById("nome").value.trim();
     const cpf = document.getElementById("cpf").value.trim();
     const telefone = document.getElementById("telefone").value.trim();
-    const brasil = document.getElementById("brasil").value;
-    const haiti = document.getElementById("haiti").value; // Placar da Escócia (salvo no campo haiti)
+    const brasilInput = document.getElementById("brasil");
+    const haitiInput = document.getElementById("haiti");
+    const brasilVal = brasilInput.value.trim();
+    const haitiVal = haitiInput.value.trim();
 
-    if (
-        !nome ||
-        !cpf ||
-        !telefone ||
-        brasil === "" ||
-        haiti === ""
-    ) {
-        alert("Preencha todos os campos do formulário (Nome, CPF, Telefone e Placar).");
+    // Validação robusta: verifica cada campo individualmente
+    const camposFaltando = [];
+    if (!nome) camposFaltando.push("Nome Completo");
+    if (!cpf) camposFaltando.push("CPF");
+    if (!telefone) camposFaltando.push("Telefone");
+    if (brasilVal === "" || brasilVal === null) camposFaltando.push("Placar do Brasil");
+    if (haitiVal === "" || haitiVal === null) camposFaltando.push("Placar da Escócia");
+
+    if (camposFaltando.length > 0) {
+        alert("Preencha os seguintes campos:\n• " + camposFaltando.join("\n• "));
         return;
     }
+
+    const brasil = brasilVal;
+    const haiti = haitiVal;
 
     if (!jogadorSelecionadoBrasil || !jogadorSelecionadoEscocia) {
         alert("Por favor, selecione quem fará o primeiro gol de cada time (ou selecione 'Nenhum / Outro').");

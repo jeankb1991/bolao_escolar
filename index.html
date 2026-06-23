@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bolão Escolar 3º Ano — Copa do Mundo</title>
     
+    <!-- Link para o arquivo de estilos atualizado -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 
 <body>
 
+    <!-- CABEÇALHO DO BOLÃO -->
     <header>
         <h3>Copa do Mundo</h3>
         <h1>🏆 Bolão Escolar</h1>
@@ -20,6 +23,7 @@
         <p>São Lourenço do Piauí - PI</p>
     </header>
 
+    <!-- HERO: BANDEIRAS DOS PAÍSES -->
     <section class="hero">
         <div class="time">
             <div class="flag-wrapper">
@@ -40,11 +44,13 @@
         </div>
     </section>
 
+    <!-- SEÇÃO DE INFORMAÇÕES E CONTADOR -->
     <section class="info">
         <div class="premio piscando">🎁 Grandes Prêmios em Jogo!</div>
         <div class="contador">Total de Apostas: <span id="total">0</span></div>
     </section>
 
+    <!-- CARD DE PREMIAÇÃO -->
     <section class="premiacao">
         <h2>🎁 Premiação do Bolão</h2>
         <h3>Os donos dos melhores palpites levarão para casa:</h3>
@@ -67,9 +73,11 @@
         </div>
     </section>
 
+    <!-- CARD PRINCIPAL: FORMULÁRIO DE APOSTA -->
     <main class="card">
         <h2>⚽ Faça sua Aposta</h2>
 
+        <!-- Dados do Apostador -->
         <div class="form-row">
             <div class="input-group">
                 <label for="nome">Nome Completo</label>
@@ -85,6 +93,7 @@
             </div>
         </div>
 
+        <!-- Placar Centralizado -->
         <section class="placar-section">
             <h3>Placar do Jogo</h3>
             <div class="placar-grid">
@@ -95,21 +104,25 @@
                 <div class="placar-divisor">X</div>
                 <div class="placar-input-wrapper">
                     <span class="placar-label escocia-text">ESCÓCIA</span>
-                    <input id="escocia" type="number" min="0" value="0">
+                    <!-- Mantido o id="haiti" exigido pelo script app.js na linha 273 -->
+                    <input id="haiti" type="number" min="0" value="0">
                 </div>
             </div>
         </section>
 
+        <!-- Seleção de Autores dos Gols (Chips) -->
         <section class="gols-section">
             <h3>⚽ Marcador do Primeiro Gol</h3>
             <p class="section-desc">Selecione o jogador que marcará o primeiro gol de cada equipe no tempo regulamentar:</p>
 
             <div class="gols-grid">
+                <!-- Bloco Brasil -->
                 <div class="selecao-container">
                     <div class="time-titulo brasil-text">BR BRASIL</div>
                     <div id="chips-brasil" class="chips-container"></div>
                 </div>
 
+                <!-- Bloco Escócia -->
                 <div class="selecao-container">
                     <div class="time-titulo escocia-text">🏴 ESCÓCIA</div>
                     <div id="chips-escocia" class="chips-container"></div>
@@ -117,11 +130,13 @@
             </div>
         </section>
 
+        <!-- Botão de Registro Estilizado -->
         <button class="btn-registrar" onclick="apostar()">REGISTRAR APOSTA</button>
         
         <div id="mensagem"></div>
     </main>
 
+    <!-- CARD DE REGISTROS: TABELA DE APOSTAS -->
     <section class="card">
         <h2>Apostas Registradas</h2>
         <div class="table-container">
@@ -135,7 +150,8 @@
                     </tr>
                 </thead>
                 <tbody id="lista">
-                    </tbody>
+                    <!-- Preenchido dinamicamente pelo app.js -->
+                </tbody>
             </table>
         </div>
     </section>
@@ -144,6 +160,7 @@
         &copy; 2026 Terceirão - CETI Malaquias Ribeiro Damasceno
     </footer>
 
+    <!-- Script de lógica -->
     <script src="app.js"></script>
 
 </body>
